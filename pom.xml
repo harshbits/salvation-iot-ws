@@ -135,12 +135,12 @@
 			<version>1.0.0-alpha</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.nd4j</groupId>
 			<artifactId>nd4j-native-platform</artifactId>
 			<version>1.0.0-alpha</version>
-			<!-- <scope>test</scope> -->
-		</dependency>
+			<scope>test</scope>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.datavec/datavec-api -->
 		<dependency>
 			<groupId>org.datavec</groupId>
@@ -149,13 +149,13 @@
 		</dependency>
 		<!-- <dependency> <groupId>org.nd4j</groupId> <artifactId>nd4j-cuda-8.0-platform</artifactId> 
 			<version>1.0.0-alpha</version> </dependency> -->
-
+<!-- 
 		<dependency>
 			<groupId>org.python</groupId>
 			<artifactId>jython-standalone</artifactId>
 			<version>2.7.1</version>
 		</dependency>
-
+ -->
 	</dependencies>
 
 	<build>
