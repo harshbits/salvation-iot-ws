@@ -2,6 +2,7 @@ package com.salvation.service;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.salvation.domain.AnalyzeRequest;
 import com.salvation.domain.AnalyzeResponse;
+import com.salvation.domain.AnimalData;
 import com.salvation.domain.CriticalAnimalData;
 
 import lombok.extern.slf4j.Slf4j;
@@ -49,15 +51,23 @@ public class AnimalDataService {
 	}
 
 	public AnalyzeResponse analyzeAnimalData(AnalyzeRequest request) {
+		
+//		try {
+//			redisTemplate.opsForHash().put("blockchain", "1", "hello");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		AnalyzeResponse response = new AnalyzeResponse();
-		response.setQrCode(request.getQrCode());
-		response.setCondition("Sunny");
-		response.setCo2Emission(81.00);
-		response.setNitrogenLevel(55.0);
-		response.setPrecipitation(0);
-		response.setTemperature(56);
+		BeanUtils.copyProperties(request, response);
 		response.setRiskFactor("LOW");
-		response.setSnowFall(17);
+		AnimalData data = new AnimalData();
+		data.setCondition("Sunny");
+		data.setCo2Emission(81.00);
+		data.setNitrogenLevel(55.0);
+		data.setPrecipitation(0);
+		data.setTemperature(56);
+		data.setSnowFall(17);
+		response.setData(data);
 		return response;
 	}
 
